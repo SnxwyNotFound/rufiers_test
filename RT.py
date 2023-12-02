@@ -51,8 +51,23 @@ scr2_widgets = {
 for s2w in scr2_widgets.values():
     screen2.addWidget(s2w)
 
+def results():
+    scr1.hide()
+    scr2.hide()
+    scr3.show()
+scr2_widgets["result_button"].clicked.connect(results)
+
 #Screen 3
 screen3 = QVBoxLayout()
+scr3_widgets = {
+    "results_intro" : QLabel("Here are your results: "),
+    "rufier_index" : QLabel("Rufier Index : 0"),
+    "cardiac_performance" : QLabel("Cardiac performance: there is no data for this age")
+}
+for s3w in scr3_widgets.values():
+    screen3.addWidget(s3w)
+
+#Screen 3 Interface
 
 scr1 = QGroupBox()
 scr2 = QGroupBox()
