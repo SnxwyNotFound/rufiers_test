@@ -11,7 +11,7 @@ window = QWidget()
 window.setWindowTitle("Ruffier Test")
 window.resize(550,550)
 
-#..... layout
+#layout
 main_layout = QVBoxLayout()
 
 #Screen 1
