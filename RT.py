@@ -1,8 +1,10 @@
 #IMPORTS
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer, QTime
 from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QMessageBox, QRadioButton, QPushButton, QLabel, QGroupBox, QVBoxLayout, QHBoxLayout
 from random import randint
 from PyQt5.QtGui import QFont
+from PyQt5.QtGui import QIntValidator
+import sys
 
 #WINDOW THINGS
 app = QApplication([])
@@ -22,6 +24,8 @@ scr1_widgets = {
     "description" : QLabel("It's a cardiovascular endurance test. Click -Start- to begin."),
     "start_button" : QPushButton("Start")
 }
+
+scr1_widgets["start_button"].setStyleSheet("background-color : lightpink")
 
 for s1w in scr1_widgets.values():
     screen1.addWidget(s1w)
@@ -48,6 +52,18 @@ scr2_widgets = {
     "p3_input" : QLineEdit(),
     "result_button" : QPushButton("Results")
 }
+
+scr2_widgets["age_input"].setValidator(QIntValidator())
+scr2_widgets["p1_input"].setValidator(QIntValidator())
+scr2_widgets["p2_input"].setValidator(QIntValidator())
+scr2_widgets["p3_input"].setValidator(QIntValidator())
+
+scr2_widgets["test_1"].setStyleSheet("background-color : yellow")
+scr2_widgets["test_2"].setStyleSheet("background-color : lightgreen")
+scr2_widgets["test_3"].setStyleSheet("background-color : skyblue")
+scr2_widgets["result_button"].setStyleSheet("background-color : violet")
+scr2_widgets["result_button"].setGeometry(200, 150, 100, 40) 
+
 for s2w in scr2_widgets.values():
     screen2.addWidget(s2w)
 
