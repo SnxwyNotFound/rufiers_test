@@ -105,7 +105,7 @@ def timer2():
     global timer, squat
     squat += 1
     timer_label.setText(f'SQUAT: {squat}')
-    if squat == 5:
+    if squat == 4:
         timer.stop()
         timer_label.setText("Begin test #3.")
 scr2_widgets["test_2"].clicked.connect(startTimer2)
@@ -113,7 +113,7 @@ scr2_widgets["test_2"].clicked.connect(startTimer2)
 
 def startTimer3():
     global time, timer
-    time = QTime(0,0,20)
+    time = QTime(0,0,10)
     timer = QTimer()
     timer.timeout.connect(timer3)
     timer.start(1000)
@@ -122,10 +122,10 @@ def timer3():
     global timer, time
     time = time.addSecs(-1)
     timer_label.setText(time.toString("mm:ss"))
-    if int(time.toString("ss")) >= 15:
-        timer_label.setStyleSheet("color: rgb(0,255,0)")
-    elif int(time.toString("ss")) <= 5:
-        timer_label.setStyleSheet("color: rgb(0,255,0)")
+    if int(time.toString("ss")) >= 6:
+        timer_label.setStyleSheet("color: rgb(102, 0, 255)")
+    elif int(time.toString("ss")) <= 4:
+        timer_label.setStyleSheet("color: rgb(102, 0, 255)")
     else:
         timer_label.setStyleSheet("color: rgb(0,0,0)")
     if time.toString("mm:ss") == "00:00":
@@ -139,13 +139,18 @@ def results():
     scr1.hide()
     scr2.hide()
     scr3.show()
+    p1 = int(scr2_widgets["p1_input"].text())
+    p2 = int(scr2_widgets["p2_input"].text())
+    p3 = int(scr2_widgets["p3_input"].text())
+    index = (4 * (p1 + p2 + p3)-200)/10
+    print(index)
 scr2_widgets["result_button"].clicked.connect(results)
 
 #Screen 3
 screen3 = QVBoxLayout()
 scr3_widgets = {
     "results_intro" : QLabel("Here are your results: "),
-    "rufier_index" : QLabel("Rufier Index : 0"),
+    "rufier_index" : QLabel("Rufier Index : "),
     "cardiac_performance" : QLabel("Cardiac performance: there is no data for this age")
 }
 for s3w in scr3_widgets.values():
