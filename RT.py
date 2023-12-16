@@ -1,6 +1,6 @@
 #IMPORTS
 from PyQt5.QtCore import Qt, QTimer, QTime
-from PyQt5.QtWidgets import QApplication, QWidget, QInputDialog, QLineEdit, QMessageBox, QRadioButton, QPushButton, QLabel, QGroupBox, QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QMessageBox, QRadioButton, QPushButton, QLabel, QGroupBox, QVBoxLayout, QHBoxLayout
 from random import randint
 from PyQt5.QtGui import QFont
 from PyQt5.QtGui import QIntValidator
@@ -66,6 +66,31 @@ scr2_widgets["result_button"].setGeometry(200, 150, 100, 40)
 
 for s2w in scr2_widgets.values():
     screen2.addWidget(s2w)
+
+timer_label = QLabel("Timer")
+timer_label.setFont(QFont("Comic Sans MS",24,QFont.Bold))
+screen2.addWidget(timer_label)
+time = QTime(0,0,1)
+timer = None
+
+
+def startTimer1():
+    global time, timer
+    time = QTime(0,0,16)
+    timer = QTimer()
+    timer.timeout.connect(timer1)
+    timer.start(1000)
+
+def timer1():
+     global time,timer
+     print(f"timer counting: " , {time})
+     time = time.addSecs(-1)
+     timer_label.setText(f'Count pulse : ' , {time.toString("mm:ss")})
+     if time.toString("mm:ss") == "00:00":
+          timer.stop()
+          timer_label.setText('Enter pulse, then begin test #2.')
+scr2_widgets["test_1"].clicked.connect(startTimer1)
+
 
 def results():
     scr1.hide()
