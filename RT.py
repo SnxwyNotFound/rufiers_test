@@ -41,16 +41,16 @@ scr2_widgets = {
     "name_input" : QLineEdit(),
     "age_label" : QLabel("Enter your age"),
     "age_input": QLineEdit(),
-    "instructions1" : QLabel("Instructions"),
+    "instructions1" : QLabel("#1. Lie on your back & take your pulse for 15 seconds. Click the 'Start first test' button to start the timer. Write down the result in the appropriate field."),
     "test_1" : QPushButton("Start the first test"),
     "p1_input" : QLineEdit(),
-    "instructions2" : QLabel("Instructions #2"),
+    "instructions2" : QLabel("#2. Perform 30 squats in 45 seconds. To do this, click the 'Start doing squats' button to start the squat counter."),
     "test_2": QPushButton("Start doing squats"),
-    "instructions3" : QLabel("Instructions #3"),
+    "instructions3" : QLabel("#3. Lie on your back and take your pulse for the first 15 secs of the Min, then for the last 15 secs of the min. Press 'Start final test' button to start the timer."),
     "test_3" : QPushButton("Start the final test"),
     "p2_input" : QLineEdit(),
     "p3_input" : QLineEdit(),
-    "result_button" : QPushButton("Results")
+    "result_button" : QPushButton("Send Results")
 }
 
 scr2_widgets["age_input"].setValidator(QIntValidator())
@@ -67,29 +67,49 @@ scr2_widgets["result_button"].setGeometry(200, 150, 100, 40)
 for s2w in scr2_widgets.values():
     screen2.addWidget(s2w)
 
+#TIMERS/TIME --> Screen 2
 timer_label = QLabel("Timer")
 timer_label.setFont(QFont("Comic Sans MS",24,QFont.Bold))
 screen2.addWidget(timer_label)
 time = QTime(0,0,1)
 timer = None
 
-
 def startTimer1():
     global time, timer
-    time = QTime(0,0,16)
+    time = QTime(0,0,6)
     timer = QTimer()
     timer.timeout.connect(timer1)
     timer.start(1000)
 
 def timer1():
      global time,timer
-     print(f"timer counting: " , {time})
+     print(f"timer counting: {time}")
      time = time.addSecs(-1)
-     timer_label.setText(f'Count pulse : ' , {time.toString("mm:ss")})
+     timer_label.setText(f'Count pulse :{time.toString("mm:ss")}')
      if time.toString("mm:ss") == "00:00":
           timer.stop()
           timer_label.setText('Enter pulse, then begin test #2.')
 scr2_widgets["test_1"].clicked.connect(startTimer1)
+
+def startTimer2():
+    global time, timer
+    time = QTime(0,0,0)
+    timer = QTimer()
+    timer.timeout.connect(timer2)
+    timer.start(1500)
+
+squat = 0
+def timer2():
+    global timer, squat
+    squat += 1
+    timer_label.setText(f'SQUAT: {squat}')
+    if squat == 5:
+        timer.stop()
+        timer_label.setText("Begin test #3.")
+scr2_widgets["test_2"].clicked.connect(startTimer2)
+
+def startTimer3():
+    pass
 
 
 def results():
