@@ -69,10 +69,11 @@ for s2w in scr2_widgets.values():
 
 #TIMERS/TIME --> Screen 2
 timer_label = QLabel("Timer")
-timer_label.setFont(QFont("Comic Sans MS",24,QFont.Bold))
+timer_label.setFont(QFont("Comic Sans MS",22,QFont.Bold))
 screen2.addWidget(timer_label)
 time = QTime(0,0,1)
 timer = None
+
 
 def startTimer1():
     global time, timer
@@ -91,6 +92,7 @@ def timer1():
           timer_label.setText('Enter pulse, then begin test #2.')
 scr2_widgets["test_1"].clicked.connect(startTimer1)
 
+
 def startTimer2():
     global time, timer
     time = QTime(0,0,0)
@@ -108,8 +110,29 @@ def timer2():
         timer_label.setText("Begin test #3.")
 scr2_widgets["test_2"].clicked.connect(startTimer2)
 
+
 def startTimer3():
-    pass
+    global time, timer
+    time = QTime(0,0,20)
+    timer = QTimer()
+    timer.timeout.connect(timer3)
+    timer.start(1000)
+
+def timer3():
+    global timer, time
+    time = time.addSecs(-1)
+    timer_label.setText(time.toString("mm:ss"))
+    if int(time.toString("ss")) >= 15:
+        timer_label.setStyleSheet("color: rgb(0,255,0)")
+    elif int(time.toString("ss")) <= 5:
+        timer_label.setStyleSheet("color: rgb(0,255,0)")
+    else:
+        timer_label.setStyleSheet("color: rgb(0,0,0)")
+    if time.toString("mm:ss") == "00:00":
+        timer.stop()
+        timer_label.setText('Enter the results for test #2 & #3.')
+scr2_widgets["test_3"].clicked.connect(startTimer3)
+
 
 
 def results():
