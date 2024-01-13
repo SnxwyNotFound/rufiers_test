@@ -21,7 +21,7 @@ screen1 = QVBoxLayout()
 
 scr1_widgets = {
     "title" : QLabel("Rufiers Test"),
-    "description" : QLabel("It's a cardiovascular endurance test. Click -Start- to begin."),
+    "description" : QLabel("The Ruffier test is a 3-minute heart rate test. This simple test requires participants to perform 30 squats in 45 seconds. Give it a shot! Click -Start- to begin."),
     "start_button" : QPushButton("Start")
 }
 
