@@ -113,7 +113,7 @@ scr2_widgets["test_2"].clicked.connect(startTimer2)
 
 def startTimer3():
     global time, timer
-    time = QTime(0,0,10)
+    time = QTime(0,0,5)
     timer = QTimer()
     timer.timeout.connect(timer3)
     timer.start(1000)
@@ -144,6 +144,20 @@ def results():
     p3 = int(scr2_widgets["p3_input"].text())
     index = (4 * (p1 + p2 + p3)-200)/10
     print(index)
+    age = int(scr2_widgets["age_input"].text())
+    print(age)
+
+    if age == 7 or age == 8:
+        print("age is 7 or 8")
+    if age == 9 or age == 10:
+        print("age is 9 or 10")
+    if age == 11 or age == 12:
+        print("age is 11 or 12")
+    if age == 13 or age == 14:
+        print("age is 13 or 14")
+    if age >= 15:
+        print("age is > or = to 15")
+
 scr2_widgets["result_button"].clicked.connect(results)
 
 #Screen 3
