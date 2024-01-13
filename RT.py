@@ -151,89 +151,64 @@ def results():
 
     if (age == 7 or age == 8):
         if index >= 21:
-            print("Level: Low")
-            ur_level = "Low"
+            ur_level = "Low. See your doctor ASAP! 🩺"
         if index >= 17 and index <= 20.9:
-            print("Level: Satisfactory")
-            ur_level = "Satisfactory"
+            ur_level = "Satisfactory. See your doctor. 👩‍⚕️"
         if index >= 12 and index <= 16.9:
-            print("Level: Average")
-            ur_level = "Average"
+            ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 6.5 and index <= 11.9:
-            print("Level: Above Average")
-            ur_level = "Above Average"
+            ur_level = "Above Average. Your good to go. 👍"
         if index <= 6.4:
-            print("Level: High")
             ur_level = "High"
 
     if (age == 9 or age == 10):
         if index >= 19.5:
-            print("Level: Low")
-            ur_level = "Low"
+            ur_level = "Low. See your doctor ASAP! 🩺"
         if index >= 15.5 and index <= 19.4:
-            print("Level: Satisfactory")
-            ur_level = "Satisfactory"
+            ur_level = "Satisfactory. See your doctor. 👩‍⚕️"
         if index >= 10.5 and index <= 15.4:
-            print("Level: Average")
-            ur_level = "Average"
+            ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 5 and index <= 10.4:
-            print("Level: Above Average")
-            ur_level = "Above Average"
+            ur_level = "Above Average. Your good to go. 👍"
         if index <= 4.9:
-            print("Level: High")
             ur_level = "High"
 
     if age == 11 or age == 12:
         if index >= 18:
-            print("Level: Low")
-            ur_level = "Low"
+            ur_level = "Low. See your doctor ASAP! 🩺"
         if index >= 14 and index <= 17.9:
-            print("Level: Satisfactory")
-            ur_level = "Satisfactory"
+            ur_level = "Satisfactory. See your doctor. 👩‍⚕️"
         if index >= 9 and index <= 13.9:
-            print("Level: Average")
-            ur_level = "Average"
+            ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 3.5 and index <= 8.9:
-            print("Level: Above Average")
-            ur_level = "Above Average"
+            ur_level = "Above Average. Your good to go. 👍"
         if index <= 3.4:
-            print("Level: High")
             ur_level = "High"
 
     if age == 13 or age == 14:
         if index >= 16.5:
-            print("Level: Low")
-            ur_level = "Low"
+            ur_level = "Low. See your doctor ASAP! 🩺"
         if index >= 12.5 and index <= 16.4:
-            print("Level: Satisfactory")
-            ur_level = "Satisfactory"
+            ur_level = "Satisfactory. See your doctor. 👩‍⚕️"
         if index >= 7.5 and index <= 12.4:
-            print("Level: Average")
-            ur_level = "Average"
+            ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 2 and index <= 7.4:
-            print("Level: Above Average")
-            ur_level = "Above Average"
+            ur_level = "Above Average. Your good to go. 👍"
         if index <= 1.9:
-            print("Level: High")
             ur_level = "High"
 
     if age >= 15:
         if index >= 15:
-            print("Level: Low")
-            ur_level = "Low"
+            ur_level = "Low. See your doctor ASAP! 🩺"
         if index >= 11 and index <= 14.9:
-            print("Level: Satisfactory")
-            ur_level = "Satisfactory"
+            ur_level = "Satisfactory. See your doctor. 👩‍⚕️"
         if index >= 6 and index <= 10.9:
-            print("Level: Average")
-            ur_level = "Average"
+            ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 0.5 and index <= 5.9:
-            print("Level: Above Average")
-            ur_level = "Above Average"
+            ur_level = "Above Average. Your good to go. 👍"
         if index <= 0.4:
-            print("Level: High")
             ur_level = "High"
-            
+
     scr3_widgets["cardiac_performance"].setText("Cardiac Performance : " + ur_level)
 
 scr2_widgets["result_button"].clicked.connect(results)
