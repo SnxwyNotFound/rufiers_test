@@ -135,8 +135,10 @@ scr2_widgets["test_3"].clicked.connect(startTimer3)
 
 
 index = 0
+ur_level = ""
 def results():
     global index
+    global ur_level
     scr1.hide()
     scr2.hide()
     scr3.show()
@@ -150,63 +152,89 @@ def results():
     if (age == 7 or age == 8):
         if index >= 21:
             print("Level: Low")
+            ur_level = "Low"
         if index >= 17 and index <= 20.9:
             print("Level: Satisfactory")
+            ur_level = "Satisfactory"
         if index >= 12 and index <= 16.9:
             print("Level: Average")
+            ur_level = "Average"
         if index >= 6.5 and index <= 11.9:
             print("Level: Above Average")
+            ur_level = "Above Average"
         if index <= 6.4:
             print("Level: High")
+            ur_level = "High"
 
     if (age == 9 or age == 10):
         if index >= 19.5:
             print("Level: Low")
+            ur_level = "Low"
         if index >= 15.5 and index <= 19.4:
             print("Level: Satisfactory")
+            ur_level = "Satisfactory"
         if index >= 10.5 and index <= 15.4:
             print("Level: Average")
+            ur_level = "Average"
         if index >= 5 and index <= 10.4:
             print("Level: Above Average")
+            ur_level = "Above Average"
         if index <= 4.9:
             print("Level: High")
+            ur_level = "High"
 
     if age == 11 or age == 12:
         if index >= 18:
             print("Level: Low")
+            ur_level = "Low"
         if index >= 14 and index <= 17.9:
             print("Level: Satisfactory")
+            ur_level = "Satisfactory"
         if index >= 9 and index <= 13.9:
             print("Level: Average")
+            ur_level = "Average"
         if index >= 3.5 and index <= 8.9:
             print("Level: Above Average")
+            ur_level = "Above Average"
         if index <= 3.4:
             print("Level: High")
+            ur_level = "High"
 
     if age == 13 or age == 14:
         if index >= 16.5:
             print("Level: Low")
+            ur_level = "Low"
         if index >= 12.5 and index <= 16.4:
             print("Level: Satisfactory")
+            ur_level = "Satisfactory"
         if index >= 7.5 and index <= 12.4:
             print("Level: Average")
+            ur_level = "Average"
         if index >= 2 and index <= 7.4:
             print("Level: Above Average")
+            ur_level = "Above Average"
         if index <= 1.9:
             print("Level: High")
+            ur_level = "High"
 
     if age >= 15:
         if index >= 15:
             print("Level: Low")
+            ur_level = "Low"
         if index >= 11 and index <= 14.9:
             print("Level: Satisfactory")
+            ur_level = "Satisfactory"
         if index >= 6 and index <= 10.9:
             print("Level: Average")
+            ur_level = "Average"
         if index >= 0.5 and index <= 5.9:
             print("Level: Above Average")
+            ur_level = "Above Average"
         if index <= 0.4:
             print("Level: High")
-
+            ur_level = "High"
+            
+    scr3_widgets["cardiac_performance"].setText("Cardiac Performance : " + ur_level)
 
 scr2_widgets["result_button"].clicked.connect(results)
 
@@ -215,7 +243,7 @@ screen3 = QVBoxLayout()
 scr3_widgets = {
     "results_intro" : QLabel("Here are your results: "),
     "rufier_index" : QLabel("Rufier Index : "),
-    "cardiac_performance" : QLabel("Cardiac performance: there is no data for this age")
+    "cardiac_performance" : QLabel("Cardiac performance: ")
 }
 for s3w in scr3_widgets.values():
     screen3.addWidget(s3w)
