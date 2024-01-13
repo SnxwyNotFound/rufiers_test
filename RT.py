@@ -134,8 +134,9 @@ def timer3():
 scr2_widgets["test_3"].clicked.connect(startTimer3)
 
 
-
+index = 0
 def results():
+    global index
     scr1.hide()
     scr2.hide()
     scr3.show()
@@ -143,20 +144,69 @@ def results():
     p2 = int(scr2_widgets["p2_input"].text())
     p3 = int(scr2_widgets["p3_input"].text())
     index = (4 * (p1 + p2 + p3)-200)/10
-    print(index)
     age = int(scr2_widgets["age_input"].text())
-    print(age)
+    scr3_widgets["rufier_index"].setText("Rufier Index : " + str(index))
 
-    if age == 7 or age == 8:
-        print("age is 7 or 8")
-    if age == 9 or age == 10:
-        print("age is 9 or 10")
+    if (age == 7 or age == 8):
+        if index >= 21:
+            print("Level: Low")
+        if index >= 17 and index <= 20.9:
+            print("Level: Satisfactory")
+        if index >= 12 and index <= 16.9:
+            print("Level: Average")
+        if index >= 6.5 and index <= 11.9:
+            print("Level: Above Average")
+        if index <= 6.4:
+            print("Level: High")
+
+    if (age == 9 or age == 10):
+        if index >= 19.5:
+            print("Level: Low")
+        if index >= 15.5 and index <= 19.4:
+            print("Level: Satisfactory")
+        if index >= 10.5 and index <= 15.4:
+            print("Level: Average")
+        if index >= 5 and index <= 10.4:
+            print("Level: Above Average")
+        if index <= 4.9:
+            print("Level: High")
+
     if age == 11 or age == 12:
-        print("age is 11 or 12")
+        if index >= 18:
+            print("Level: Low")
+        if index >= 14 and index <= 17.9:
+            print("Level: Satisfactory")
+        if index >= 9 and index <= 13.9:
+            print("Level: Average")
+        if index >= 3.5 and index <= 8.9:
+            print("Level: Above Average")
+        if index <= 3.4:
+            print("Level: High")
+
     if age == 13 or age == 14:
-        print("age is 13 or 14")
+        if index >= 16.5:
+            print("Level: Low")
+        if index >= 12.5 and index <= 16.4:
+            print("Level: Satisfactory")
+        if index >= 7.5 and index <= 12.4:
+            print("Level: Average")
+        if index >= 2 and index <= 7.4:
+            print("Level: Above Average")
+        if index <= 1.9:
+            print("Level: High")
+
     if age >= 15:
-        print("age is > or = to 15")
+        if index >= 15:
+            print("Level: Low")
+        if index >= 11 and index <= 14.9:
+            print("Level: Satisfactory")
+        if index >= 6 and index <= 10.9:
+            print("Level: Average")
+        if index >= 0.5 and index <= 5.9:
+            print("Level: Above Average")
+        if index <= 0.4:
+            print("Level: High")
+
 
 scr2_widgets["result_button"].clicked.connect(results)
 
