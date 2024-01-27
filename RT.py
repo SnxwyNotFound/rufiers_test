@@ -113,7 +113,7 @@ scr2_widgets["test_2"].clicked.connect(startTimer2)
 
 def startTimer3():
     global time, timer
-    time = QTime(0,0,5)
+    time = QTime(0,0,4)
     timer = QTimer()
     timer.timeout.connect(timer3)
     timer.start(1000)
@@ -139,15 +139,36 @@ ur_level = ""
 def results():
     global index
     global ur_level
-    scr1.hide()
-    scr2.hide()
-    scr3.show()
+
+    msg_box1 = QMessageBox()
+    msg_box2 = QMessageBox()
+    msg_box3 = QMessageBox()
+    if scr2_widgets["p1_input"].text() == "":
+        print("Enter p1!")
+        msg_box1.setText("Enter the Input for P1!")
+        msg_box1.exec()
+        return
+    if scr2_widgets["p2_input"].text() == "":
+        print("Enter p2!")
+        msg_box2.setText("Enter the Input for P2!")
+        msg_box2.exec()
+        return
+    if scr2_widgets["p3_input"].text() == "":
+        print("Enter p3!")
+        msg_box3.setText("Enter the Input for P3!")
+        msg_box3.exec()
+        return
+
     p1 = int(scr2_widgets["p1_input"].text())
     p2 = int(scr2_widgets["p2_input"].text())
     p3 = int(scr2_widgets["p3_input"].text())
     index = (4 * (p1 + p2 + p3)-200)/10
     age = int(scr2_widgets["age_input"].text())
     scr3_widgets["rufier_index"].setText("Rufier Index : " + str(index))
+
+    scr1.hide()
+    scr2.hide()
+    scr3.show()
 
     if (age == 7 or age == 8):
         if index >= 21:
