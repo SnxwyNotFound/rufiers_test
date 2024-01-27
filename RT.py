@@ -140,21 +140,23 @@ def results():
     global index
     global ur_level
 
+    msg_box = QMessageBox()
     msg_box1 = QMessageBox()
     msg_box2 = QMessageBox()
     msg_box3 = QMessageBox()
+    if scr2_widgets["age_input"].text() == "":
+        msg_box.setText("You must enter your Age!")
+        msg_box.exec()
+        return
     if scr2_widgets["p1_input"].text() == "":
-        print("Enter p1!")
         msg_box1.setText("Enter the Input for P1!")
         msg_box1.exec()
         return
     if scr2_widgets["p2_input"].text() == "":
-        print("Enter p2!")
         msg_box2.setText("Enter the Input for P2!")
         msg_box2.exec()
         return
     if scr2_widgets["p3_input"].text() == "":
-        print("Enter p3!")
         msg_box3.setText("Enter the Input for P3!")
         msg_box3.exec()
         return
@@ -178,7 +180,7 @@ def results():
         if index >= 12 and index <= 16.9:
             ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 6.5 and index <= 11.9:
-            ur_level = "Above Average. Your good to go. 👍"
+            ur_level = "Above Average. You're good to go. 👍"
         if index <= 6.4:
             ur_level = "High"
 
@@ -190,7 +192,7 @@ def results():
         if index >= 10.5 and index <= 15.4:
             ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 5 and index <= 10.4:
-            ur_level = "Above Average. Your good to go. 👍"
+            ur_level = "Above Average. You're good to go. 👍"
         if index <= 4.9:
             ur_level = "High"
 
@@ -202,7 +204,7 @@ def results():
         if index >= 9 and index <= 13.9:
             ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 3.5 and index <= 8.9:
-            ur_level = "Above Average. Your good to go. 👍"
+            ur_level = "Above Average. You're good to go. 👍"
         if index <= 3.4:
             ur_level = "High"
 
@@ -214,7 +216,7 @@ def results():
         if index >= 7.5 and index <= 12.4:
             ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 2 and index <= 7.4:
-            ur_level = "Above Average. Your good to go. 👍"
+            ur_level = "Above Average. You're good to go. 👍"
         if index <= 1.9:
             ur_level = "High"
 
@@ -226,7 +228,7 @@ def results():
         if index >= 6 and index <= 10.9:
             ur_level = "Average. May be better to go check it out. 🍎"
         if index >= 0.5 and index <= 5.9:
-            ur_level = "Above Average. Your good to go. 👍"
+            ur_level = "Above Average. You're good to go. 👍"
         if index <= 0.4:
             ur_level = "High"
 
